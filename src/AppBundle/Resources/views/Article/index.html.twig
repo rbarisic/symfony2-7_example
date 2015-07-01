@@ -1,0 +1,55 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Article:index{% endblock %}
+
+{% block body %}
+
+	<style>
+		table tr {
+			background-color: rgba(0,0,0,0.1);
+		}
+		table tr:nth-Child(2n) {
+			background-color: rgba(0,0,0,0.2);
+			margin: 0;
+		}
+		table tr th {
+			padding: 0.5em;
+			background: #999;
+		}
+		table tr td {
+			padding: 0.5em;
+			margin: 0;
+		}
+	</style>
+
+	<h1>All Articles</h1>
+
+	<div>
+		<table style="outline: 1px solid #999">
+			<tr>
+				<th>ID</th>
+				<th style="text-align: left;">Title</th>
+				<th style="text-align: left;">Content</th>
+				<th>Action</th>
+			</tr>
+			{% for article in articles %}
+				<tr>
+					<td>{{ article.id }}</td>
+					<td>{{ article.title }}</td>
+					<td>{{ article.content }}</td>
+					<td><button onclick="deleteIt({{article.id}})" data-method="delete">Delete</button></td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+
+	<script>
+		function deleteIt(idLord) {
+			var req = new XMLHttpRequest();
+			req.open('DELETE', 'http://localhost:8000/article' + idLord.toString(), true);
+			req.send();
+			alert('Article ' + id.toString() + ' was deleted.'
+		}
+	</script>
+
+{% endblock %}

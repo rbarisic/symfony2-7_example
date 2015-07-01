@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Article:show{% endblock %}
+
+{% block body %}
+	<h1>Article</h1>
+	<p>Go back to the <a href="{{ url('app_article_index')}}">Article Overview</a>.
+	<h2>{{ title }}</h2>
+	<p> {{ content }}</p>
+{% endblock %}

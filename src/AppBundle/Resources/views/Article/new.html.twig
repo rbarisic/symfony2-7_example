@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Article:new{% endblock %}
+
+{% block body %}
+	<h1>Welcome to the Article:new page</h1>
+
+	<form accept-charset="UTF-8" action="{{ path('app_article_create') }}" id="new_article" method="post">
+		<input type="text" autofocus="true" id="article_title" name="article[title]" placeholder="Enter Title...">
+		<br />
+		<br />
+		<textarea id="article_content" name="article[content]" placeholder="Write your Article here..."></textarea>
+		<br />
+		<br />
+		<input type="submit" value="Create New Article">
+	</form>
+
+{% endblock %}

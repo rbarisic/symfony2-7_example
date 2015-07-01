@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+    </style>
+
+    <body>
+        <nav>
+            <a href="{{ url('app_article_index')}}">All Articles</a>
+            | <a href="{{ url('app_article_new')}}">New Article</a>
+        </nav>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
